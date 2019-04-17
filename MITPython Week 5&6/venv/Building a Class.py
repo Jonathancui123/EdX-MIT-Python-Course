@@ -70,6 +70,7 @@ UG1 = UG("HEHE", 2020)
 S1 = Student("My guy")
 S2 = Student("His guy")
 
+
 classList = [S1,UG1, S2]
 for e in classList:
     print(e)
