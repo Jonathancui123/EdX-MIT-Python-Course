@@ -25,3 +25,9 @@ class Person (object):
             return self.name < other.Name
         else:
             return self.lastName < other.lastName
+
+
+#New student subclass --> Unique ID numbers, and SPEAK function, new sorting method (using ID)
+#New Undergrad subclass of student --> new speak function, classYear attribute, and year getter method
+#IsStudent checking function --> return true or false
+#New MIT Professor --> department attribute, unique speak method that includes the department name, and a lecture method that uses the speak method
