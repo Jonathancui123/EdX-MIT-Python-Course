@@ -26,6 +26,20 @@ class Person (object):
         else:
             return self.lastName < other.lastName
 
+class Student(Person):
+    nextID = 0
+    def __init__(self, name):
+        Person.__init__(self, name)
+        self.numID = Student.nextID
+        Student.nextID += 1
+    def speak(self, utterance):
+        return self.name + " says: " + utterance
+    def __lt__(self, other):
+        return self.numID < other.numID
+
+class UG (Student):
+    
+
 
 #New student subclass --> Unique ID numbers, and SPEAK function, new sorting method (using ID)
 #New Undergrad subclass of student --> new speak function, classYear attribute, and year getter method
