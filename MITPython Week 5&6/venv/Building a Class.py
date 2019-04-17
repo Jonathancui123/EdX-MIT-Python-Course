@@ -37,8 +37,28 @@ class Student(Person):
     def __lt__(self, other):
         return self.numID < other.numID
 
-class UG (Student):
-    
+
+class UG(Student):
+    def __init__(self, name, year):
+        Student.__init__(self, name)
+        self.year = year
+    def getClass(self):
+        return self.year
+    def speak(self, utterance):
+        return Student.speak("Yo, " + utterance)
+
+def isStudent(obj):
+    if isinstance(obj,Student):
+        return True
+    return False
+UG1 = UG("HEHE", 2020)
+S1 = Student("My guy")
+S2 = Student("His guy")
+
+classList = [UG1, S1, S2]
+print(classList)
+print(classList.sort())
+
 
 
 #New student subclass --> Unique ID numbers, and SPEAK function, new sorting method (using ID)
