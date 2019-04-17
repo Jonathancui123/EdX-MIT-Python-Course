@@ -25,6 +25,8 @@ class Person (object):
             return self.name < other.Name
         else:
             return self.lastName < other.lastName
+    def speak(self,utterance):
+        return self.name + " says: " + utterance
 
 class Student(Person):
     nextID = 0
@@ -33,7 +35,7 @@ class Student(Person):
         self.numID = Student.nextID
         Student.nextID += 1
     def speak(self, utterance):
-        return self.name + " says: " + utterance
+        return Person.speak(utterance)
     def __lt__(self, other):
         return self.numID < other.numID
 
@@ -51,14 +53,28 @@ def isStudent(obj):
     if isinstance(obj,Student):
         return True
     return False
+
+class Professor(Person):
+    def __init__(self, name, department='None'):
+        Person.__init__(self,name)
+        self.department = department
+    def getDepartment(self):
+        return self.department
+    def speak(self, utterance):
+        newUtterance = "In the " + self.getDepartment()+ " department, we say that "
+        return Person.speak(self, newUtterance + utterance)
+    def lecture(self, utterance, topic):
+        return self.speak(self, utterance) + " and it is obvious that " + topic
+
 UG1 = UG("HEHE", 2020)
 S1 = Student("My guy")
 S2 = Student("His guy")
 
-classList = [UG1, S1, S2]
-print(str(e) for e in classList)
-# print(e for e in sorted(classList))
-
+classList = [S1,UG1, S2]
+for e in classList:
+    print(e)
+for e in sorted(classList):
+    print(e)
 
 
 #New student subclass --> Unique ID numbers, and SPEAK function, new sorting method (using ID)
