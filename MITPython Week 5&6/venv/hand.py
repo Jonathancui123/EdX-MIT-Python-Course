@@ -53,10 +53,11 @@ class Hand(object):
         '''
         Calculate the length of the hand.
         '''
-        ans = 0
-        for k in self.hand:
-            ans += self.hand[k]
-        return ans
+        return sum(self.hand.values())
+        # ans = 0
+        # for k in self.hand:
+        #     ans += self.hand[k]
+        # return ans
     
     def __str__(self):
         '''
@@ -83,7 +84,20 @@ class Hand(object):
         returns: Boolean (if the word was or was not made)
         """
         # Your code here
-        raise NotImplementedError()
+        #Create dictionary containing the frequency of letters in the inputted word
+        wordDict = {}
+        for letter in word:
+            wordDict[letter] = wordDict.get(letter,0) + 1
+        #Check if hand has enough of each letter in the inputted word
+        for letter in wordDict:
+            if wordDict[letter] > self.hand.get(letter,0):
+                return False
+        #If enough, reduce the count of each letter in hand by the frequency of each in the word
+        for letter in wordDict:
+            self.hand[letter] -= wordDict[letter]
+        #Return true once completed
+        return True
+        # raise NotImplementedError()
 
     
 myHand = Hand(7)
