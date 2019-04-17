@@ -56,8 +56,8 @@ S1 = Student("My guy")
 S2 = Student("His guy")
 
 classList = [UG1, S1, S2]
-print(classList)
-print(classList.sort())
+print(str(e) for e in classList)
+# print(e for e in sorted(classList))
 
 
 
