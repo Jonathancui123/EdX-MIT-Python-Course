@@ -35,7 +35,7 @@ class Student(Person):
         self.numID = Student.nextID
         Student.nextID += 1
     def speak(self, utterance):
-        return Person.speak(utterance)
+        return Person.speak(self,utterance)
     def __lt__(self, other):
         return self.numID < other.numID
 
