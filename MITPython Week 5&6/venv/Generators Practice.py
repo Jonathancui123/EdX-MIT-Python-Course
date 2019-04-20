@@ -8,4 +8,18 @@ def checkPrime(num):
 #First, using a primes iterator class
 
 class Primes:
-    
+    def __init__(self, rangeMax):
+        self.max = rangeMax
+        self.number = 1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        self.number += 1
+        if self.number > self.max:
+            raise StopIteration
+        elif checkPrime(self.number):
+            return self.number
+        else:
+            return self.__next__()
