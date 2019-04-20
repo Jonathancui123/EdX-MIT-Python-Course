@@ -23,3 +23,14 @@ class Primes:
             return self.number
         else:
             return self.__next__()
+
+#Secondly, using a generator:
+def genPrimes(num, max):
+    """Takes two integers, and returns iterator of all prime numbers between the two numbers inclusive"""
+    for x in range(num, max + 1):
+        if checkPrime(x):
+            yield x
+
+#Thirdly, using a generator expression:
+
+
