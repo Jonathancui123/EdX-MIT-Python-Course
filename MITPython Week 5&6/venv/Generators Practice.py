@@ -31,6 +31,18 @@ def genPrimes(num, max):
         if checkPrime(x):
             yield x
 
-#Thirdly, using a generator expression:
+#Variation: Generator for unlimited primes, can be implemented using a for loop to find the first n primes
+def unlimPrimes():
+    num = 1
+    while True:
+        num += 1
+        if checkPrime(num):
+            yield num
 
+
+max = 50
+#Thirdly, using a generator expression:\
+primesGenObj = (i for i in range (2, max) if checkPrime(i))
+#Demonstrate what an equivalent LIST would look like:
+primesList = [i for i in range(2, max) if checkPrime(i)]
 
